@@ -34,13 +34,13 @@ def load_csv_from_repo(filepath):
             st.error(f"Erro Crítico: Arquivo '{filepath}' não encontrado. Faça o 'git add' e 'git push' dele.")
             return pd.DataFrame()
 
-        # --- MODIFICADO: Tenta ler com VÍRGULA primeiro ---
+        # --- MODIFICADO: Tenta ler com PONTO E VÍRGULA (;) primeiro ---
         try:
-            df = pd.read_csv(filepath, sep=',')
-        except pd.errors.ParserError:
-            # Se falhar (talvez por causa de vírgulas nos dados), tenta com PONTO E VÍRGULA
-            st.warning(f"Falha ao ler {filepath} com ','. Tentando com ';'.")
             df = pd.read_csv(filepath, sep=';')
+        except (pd.errors.ParserError, UnicodeDecodeError):
+            # Se falhar, tenta com VÍRGULA (,) como último recurso
+            st.warning(f"Falha ao ler {filepath} com ';'. Tentando com ','...")
+            df = pd.read_csv(filepath, sep=',')
 
         # Padroniza nomes das colunas para minúsculas logo na leitura
         df.columns = df.columns.str.strip().str.lower()
@@ -49,7 +49,7 @@ def load_csv_from_repo(filepath):
 
     except Exception as e:
         st.error(
-            f"Erro ao carregar o arquivo CSV '{filepath}': {e}. Verifique se ele foi salvo como CSV (separado por vírgula).")
+            f"Erro ao carregar o arquivo CSV '{filepath}': {e}. Verifique se ele foi salvo como CSV (separado por ponto e vírgula).")
         return pd.DataFrame()
 
 
@@ -69,9 +69,14 @@ st.subheader("Processo de Limpeza e Preparação")
 
 # Verifica as colunas chave (em minúsculo, pois já foram convertidas)
 if 'id gis' not in df_projetos.columns:
-    st.error(f"Erro Crítico: Coluna 'id gis' não encontrada em '{PROJETOS_FILE}' (vinda de 'Planilha1').")
-    st.write("Colunas encontradas:", df_projetos.columns.tolist())
-    st.stop()
+    # A imagem do erro anterior mostrou 'cadastro gis'
+    if 'cadastro gis' in df_projetos.columns:
+        df_projetos.rename(columns={'cadastro gis': 'id gis'}, inplace=True)
+    else:
+        st.error(
+            f"Erro Crítico: Coluna 'id gis' ou 'cadastro gis' não encontrada em '{PROJETOS_FILE}' (vinda de 'Planilha1').")
+        st.write("Colunas encontradas:", df_projetos.columns.tolist())
+        st.stop()
 
 if 'nº projeto' not in df_indicadores.columns:
     st.error(
