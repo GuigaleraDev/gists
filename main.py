@@ -28,19 +28,30 @@ def clean_numeric_columns(df):
 def load_csv_from_repo(filepath):
     """
     Carrega um arquivo CSV que está junto com o código no repositório.
+    Tenta ler com UTF-8, e se falhar, tenta com latin1.
     """
     try:
         if not os.path.exists(filepath):
             st.error(f"Erro Crítico: Arquivo '{filepath}' não encontrado. Faça o 'git add' e 'git push' dele.")
             return pd.DataFrame()
 
+        # --- LÓGICA DE LEITURA MELHORADA ---
         try:
-            # --- MODIFICAÇÃO AQUI: Adicionado encoding='latin1' ---
+            # 1. Tenta o padrão (UTF-8) com ponto e vírgula
+            df = pd.read_csv(filepath, sep=';', encoding='utf-8')
+        except UnicodeDecodeError:
+            # 2. Se falhar o UTF-8, tenta o padrão Windows (latin1) com ponto e vírgula
+            st.warning(f"Falha no UTF-8 para {filepath}. Tentando com latin1...")
             df = pd.read_csv(filepath, sep=';', encoding='latin1')
-        except (pd.errors.ParserError, UnicodeDecodeError):
-            st.warning(f"Falha ao ler {filepath} com ';' e latin1. Tentando com ',' e latin1...")
-            # --- MODIFICAÇÃO AQUI: Adicionado encoding='latin1' ---
-            df = pd.read_csv(filepath, sep=',', encoding='latin1')
+        except pd.errors.ParserError:
+            # 3. Se falhar o separador ';', tenta com vírgula (,) e UTF-8
+            try:
+                st.warning(f"Falha no separador ';' para {filepath}. Tentando com ','...")
+                df = pd.read_csv(filepath, sep=',', encoding='utf-8')
+            except UnicodeDecodeError:
+                # 4. Se falhar o UTF-8, tenta com vírgula (,) e latin1
+                st.warning(f"Falha no UTF-8 para {filepath}. Tentando com ',' e latin1...")
+                df = pd.read_csv(filepath, sep=',', encoding='latin1')
 
         # Padroniza nomes das colunas para minúsculas logo na leitura
         df.columns = df.columns.str.strip().str.lower()
@@ -48,7 +59,7 @@ def load_csv_from_repo(filepath):
         return df
 
     except Exception as e:
-        st.error(f"Erro ao carregar o arquivo CSV '{filepath}': {e}.")
+        st.error(f"Erro fatal ao carregar o arquivo CSV '{filepath}': {e}.")
         return pd.DataFrame()
 
 
@@ -67,7 +78,6 @@ if df_projetos.empty or df_indicadores.empty:
 st.subheader("Processo de Limpeza e Preparação")
 
 # Verifica as colunas chave (em minúsculo, pois já foram convertidas)
-# A imagem do erro anterior mostrou 'cadastro gis', então vamos checar por ele.
 if 'cadastro gis' not in df_projetos.columns:
     if 'id gis' in df_projetos.columns:
         df_projetos.rename(columns={'id gis': 'cadastro gis'}, inplace=True)
