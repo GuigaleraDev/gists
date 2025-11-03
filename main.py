@@ -35,7 +35,6 @@ def load_csv_from_repo(filepath):
             st.error(f"Erro Crítico: Arquivo '{filepath}' não encontrado. Faça o 'git add' e 'git push' dele.")
             return pd.DataFrame()
 
-        # --- LÓGICA DE LEITURA MELHORADA ---
         try:
             # 1. Tenta o padrão (UTF-8) com ponto e vírgula
             df = pd.read_csv(filepath, sep=';', encoding='utf-8')
@@ -43,7 +42,7 @@ def load_csv_from_repo(filepath):
             # 2. Se falhar o UTF-8, tenta o padrão Windows (latin1) com ponto e vírgula
             st.warning(f"Falha no UTF-8 para {filepath}. Tentando com latin1...")
             df = pd.read_csv(filepath, sep=';', encoding='latin1')
-        except pd.errors.ParserError:
+        except (pd.errors.ParserError, UnicodeDecodeError):  # Adiciona UnicodeDecodeError aqui
             # 3. Se falhar o separador ';', tenta com vírgula (,) e UTF-8
             try:
                 st.warning(f"Falha no separador ';' para {filepath}. Tentando com ','...")
@@ -78,13 +77,10 @@ if df_projetos.empty or df_indicadores.empty:
 st.subheader("Processo de Limpeza e Preparação")
 
 # Verifica as colunas chave (em minúsculo, pois já foram convertidas)
-if 'cadastro gis' not in df_projetos.columns:
-    if 'id gis' in df_projetos.columns:
-        df_projetos.rename(columns={'id gis': 'cadastro gis'}, inplace=True)
-    else:
-        st.error(f"Erro Crítico: Coluna 'cadastro gis' ou 'id gis' não encontrada em '{PROJETOS_FILE}'.")
-        st.write("Colunas encontradas:", df_projetos.columns.tolist())
-        st.stop()
+if 'id gis' not in df_projetos.columns:
+    st.error(f"Erro Crítico: Coluna 'id gis' não encontrada em '{PROJETOS_FILE}'.")
+    st.write("Colunas encontradas:", df_projetos.columns.tolist())
+    st.stop()
 
 if 'nº projeto' not in df_indicadores.columns:
     st.error(f"Erro Crítico: Coluna 'nº projeto' não encontrada em '{INDICADORES_FILE}'.")
@@ -94,19 +90,30 @@ if 'nº projeto' not in df_indicadores.columns:
 # Limpa IDs inválidos e Renomeia as colunas chave para 'numero do projeto'
 invalid_values_for_keys = ['n/a', 'pendente', 'null']
 
-# Limpa df_projetos (usando 'cadastro gis')
-df_projetos.dropna(subset=['cadastro gis'], inplace=True)
-df_projetos['cadastro gis'] = df_projetos['cadastro gis'].astype(str).str.strip().str.split('.').str[0]
-df_projetos = df_projetos[~df_projetos['cadastro gis'].str.lower().isin(invalid_values_for_keys)]
-df_projetos.rename(columns={'cadastro gis': 'numero do projeto'}, inplace=True)
-st.info(f"'{PROJETOS_FILE}' limpo (usando 'cadastro gis').")
+
+# --- CORREÇÃO DE LIMPEZA DE CHAVE ---
+def clean_key_column(series):
+    # Converte para string, remove espaços
+    s = series.astype(str).str.strip()
+    # Remove qualquer coisa após um ponto OU vírgula (ex: "750,00" -> "750", "750.0" -> "750")
+    s = s.str.split(r'[.,]').str[0]
+    return s
+
+
+# Limpa df_projetos (usando 'id gis')
+df_projetos.dropna(subset=['id gis'], inplace=True)
+df_projetos['id gis'] = clean_key_column(df_projetos['id gis'])  # <-- USA A NOVA FUNÇÃO
+df_projetos = df_projetos[~df_projetos['id gis'].str.lower().isin(invalid_values_for_keys)]
+df_projetos.rename(columns={'id gis': 'numero do projeto'}, inplace=True)
+st.info(f"'{PROJETOS_FILE}' limpo (usando a coluna 'id gis').")
 
 # Limpa df_indicadores ('nº projeto')
 df_indicadores.dropna(subset=['nº projeto'], inplace=True)
-df_indicadores['nº projeto'] = df_indicadores['nº projeto'].astype(str).str.strip().str.split('.').str[0]
+df_indicadores['nº projeto'] = clean_key_column(df_indicadores['nº projeto'])  # <-- USA A NOVA FUNÇÃO
 df_indicadores = df_indicadores[~df_indicadores['nº projeto'].str.lower().isin(invalid_values_for_keys)]
 df_indicadores.rename(columns={'nº projeto': 'numero do projeto'}, inplace=True)
-st.info(f"'{INDICADORES_FILE}' limpo (usando 'nº projeto').")
+st.info(f"'{INDICADORES_FILE}' limpo (usando a coluna 'nº projeto').")
+# --- FIM DA CORREÇÃO ---
 
 # Remove colunas duplicadas de Localização ANTES do merge
 colunas_para_dropar = ['município', 'unidade', 'regional', 'estado', 'negócio', 'ano']
@@ -116,11 +123,16 @@ if colunas_encontradas_para_dropar:
     df_indicadores = df_indicadores.drop(columns=colunas_encontradas_para_dropar)
     st.info(f"Colunas duplicadas removidas de '{INDICADORES_FILE}': {colunas_encontradas_para_dropar}")
 
+if df_projetos.empty or df_indicadores.empty:
+    st.warning(
+        "Após a limpeza de IDs ('N/A', 'Pendente', nulo), um dos arquivos ficou vazio. Verifique os dados de origem.")
+    st.stop()
+
 # --- LÓGICA DE MERGE (UNIÃO) ---
 try:
     st.info("Unindo (merge) os dados...")
     df = pd.merge(df_projetos, df_indicadores, on='numero do projeto', how='left')
-    st.success("Dados unidos com sucesso!")
+    st.success(f"Dados unidos com sucesso! Total de {len(df)} linhas criadas.")
 
     df = clean_numeric_columns(df)
 
@@ -175,49 +187,49 @@ with st.sidebar:
     # --- Função auxiliar para criar OPÇÕES de filtro ---
     def criar_opcoes_filtro(dataframe_filtrado, coluna_nome):
         if coluna_nome in dataframe_filtrado.columns:
-            opcoes = dataframe_filtrado[coluna_nome].dropna().astype(str).str.strip()
+            opcoes = dataframe_filtrado[coluna_nome].dropna().astype(str).str.strip()  # Limpa espaços
             opcoes_validas = opcoes[~opcoes.str.lower().isin(invalid_filter_strings)]
             opcoes_display = opcoes_validas.str.title().unique().tolist()
             opcoes_display.sort()
             return ["Selecione"] + opcoes_display
         return ["Selecione"]
 
-        # --- Filtros em Cascata ---
+        # --- Filtros em Cascata (com correção de .str.strip() na filtragem) ---
 
 
     opcoes_regional = criar_opcoes_filtro(df_para_filtros, 'regional')
     regional_selecionado = st.selectbox('Regional', opcoes_regional, index=0)
     if regional_selecionado != "Selecione":
         df_para_filtros = df_para_filtros[
-            df_para_filtros['regional'].astype(str).str.title() == regional_selecionado
+            df_para_filtros['regional'].astype(str).str.strip().str.title() == regional_selecionado
             ]
 
     opcoes_estado = criar_opcoes_filtro(df_para_filtros, 'estado')
     estado_selecionado = st.selectbox('Estado', opcoes_estado, index=0)
     if estado_selecionado != "Selecione":
         df_para_filtros = df_para_filtros[
-            df_para_filtros['estado'].astype(str).str.title() == estado_selecionado
+            df_para_filtros['estado'].astype(str).str.strip().str.title() == estado_selecionado
             ]
 
     opcoes_municipio = criar_opcoes_filtro(df_para_filtros, 'município')
     municipio_selecionado = st.selectbox('Município', opcoes_municipio, index=0)
     if municipio_selecionado != "Selecione":
         df_para_filtros = df_para_filtros[
-            df_para_filtros['município'].astype(str).str.title() == municipio_selecionado
+            df_para_filtros['município'].astype(str).str.strip().str.title() == municipio_selecionado
             ]
 
     opcoes_negocio = criar_opcoes_filtro(df_para_filtros, 'negócio')
     negocio_selecionado = st.selectbox('Negócio', opcoes_negocio, index=0)
     if negocio_selecionado != "Selecione":
         df_para_filtros = df_para_filtros[
-            df_para_filtros['negócio'].astype(str).str.title() == negocio_selecionado
+            df_para_filtros['negócio'].astype(str).str.strip().str.title() == negocio_selecionado
             ]
 
     opcoes_unidade = criar_opcoes_filtro(df_para_filtros, 'unidade')
     unidade_selecionada = st.selectbox('Unidade', opcoes_unidade, index=0)
     if unidade_selecionada != "Selecione":
         df_para_filtros = df_para_filtros[
-            df_para_filtros['unidade'].astype(str).str.title() == unidade_selecionada
+            df_para_filtros['unidade'].astype(str).str.strip().str.title() == unidade_selecionada
             ]
 
     df_filtrado = df_para_filtros.copy()
@@ -227,167 +239,167 @@ with st.sidebar:
 # --- LÓGICA DE EXIBIÇÃO ---
 st.markdown("---")
 
-if (ano_selecionado != 'Selecione' or
-        regional_selecionado != 'Selecione' or
-        estado_selecionado != 'Selecione' or
-        municipio_selecionado != 'Selecione' or
-        negocio_selecionado != 'Selecione' or
-        unidade_selecionada != 'Selecione'):
+# Mostra os gráficos e tabelas para os dados (totais ou filtrados)
+if not df_filtrado.empty:
+    st.subheader('Análise de Metas')
 
-    if not df_filtrado.empty:
-        st.subheader('Análise de Metas')
+    tipos_grafico = ['Resultado Ciclo', 'Resultado Previsto', 'Meta 100', 'Meta 300', 'Meta 500']
+    colunas_soma = ['resultado ciclo', 'resultado previsto', 'meta100', 'meta300', 'meta500']
+    valores_grafico = []
 
-        tipos_grafico = ['Resultado Ciclo', 'Resultado Previsto', 'Meta 100', 'Meta 300', 'Meta 500']
-        colunas_soma = ['resultado ciclo', 'resultado previsto', 'meta100', 'meta300', 'meta500']
-        valores_grafico = []
-
-        for col in colunas_soma:
-            if col in df_filtrado.columns:
-                valores_grafico.append(df_filtrado[col].fillna(0).sum())
-            else:
-                valores_grafico.append(0)
-
-        dados_grafico = pd.DataFrame({
-            'Tipo': tipos_grafico,
-            'Valor': valores_grafico
-        })
-
-        fig_horizontal = px.bar(
-            dados_grafico,
-            x='Valor',
-            y='Tipo',
-            orientation='h',
-            text_auto=True,
-            title='Comparação Total de Resultado e Metas',
-            color='Tipo',
-            color_discrete_sequence=px.colors.qualitative.Pastel
-        )
-        st.plotly_chart(fig_horizontal, use_container_width=True)
-
-        st.markdown('---')
-        st.subheader('Dados Detalhados (Pós-Filtro)')
-        st.dataframe(df_filtrado)
-
-        st.markdown('---')
-        st.subheader('Análise de Metas Batidas')
-
-        colunas_meta_base = ['resultado ciclo', 'meta100', 'meta300', 'meta500']
-        colunas_meta_existentes = [col for col in colunas_meta_base if col in df_filtrado.columns]
-
-        if not colunas_meta_existentes or 'resultado ciclo' not in colunas_meta_existentes:
-            st.warning(
-                "Não foi possível analisar metas batidas. Colunas 'resultado ciclo' ou 'meta100/300/500' não encontradas.")
+    for col in colunas_soma:
+        if col in df_filtrado.columns:
+            valores_grafico.append(df_filtrado[col].fillna(0).sum())
         else:
-            df_com_metas = df_filtrado.dropna(subset=colunas_meta_existentes, how='all')
+            valores_grafico.append(0)
 
-            filtro_metas = (df_com_metas['resultado ciclo'] >= df_com_metas.get('meta100', float('inf')))
-            if 'meta300' in df_com_metas:
-                filtro_metas = filtro_metas | (df_com_metas['resultado ciclo'] >= df_com_metas['meta300'])
-            if 'meta500' in df_com_metas:
-                filtro_metas = filtro_metas | (df_com_metas['resultado ciclo'] >= df_com_metas['meta500'])
+    dados_grafico = pd.DataFrame({
+        'Tipo': tipos_grafico,
+        'Valor': valores_grafico
+    })
 
-            df_metas_batidas = df_com_metas[filtro_metas].copy()
+    fig_horizontal = px.bar(
+        dados_grafico,
+        x='Valor',
+        y='Tipo',
+        orientation='h',
+        text_auto=True,
+        title='Comparação Total de Resultado e Metas',
+        color='Tipo',
+        color_discrete_sequence=px.colors.qualitative.Pastel,
+        labels={'Valor': 'Valor Total', 'Tipo': 'Métrica'}
+    )
+    st.plotly_chart(fig_horizontal, use_container_width=True)
 
-            if not df_metas_batidas.empty:
+    st.markdown('---')
+    st.subheader('Dados Detalhados (Pós-Filtro)')
+    st.dataframe(df_filtrado)
 
-                st.subheader('Resultado vs Metas por Indicador')
+    st.markdown('---')
+    st.subheader('Análise de Metas Batidas')
 
-                if 'nome do indicador' in df_metas_batidas.columns:
-                    df_metas_batidas['nome do indicador'] = df_metas_batidas['nome do indicador'].astype(
-                        str).str.strip().str.title()
-                    df_metas_batidas['nome do indicador'] = df_metas_batidas['nome do indicador'].replace('Evasão',
-                                                                                                          '% de evasão')
+    # Lógica de Metas Batidas simplificada
+    df_com_resultado = df_filtrado.dropna(subset=['resultado ciclo'])
 
-                cols_agrupar = ['resultado ciclo', 'resultado previsto', 'meta100', 'meta300', 'meta500']
-                cols_agrupar_existentes = [col for col in cols_agrupar if col in df_metas_batidas.columns]
-
-                if 'nome do indicador' in df_metas_batidas.columns:
-                    df_agrupado = df_metas_batidas.dropna(subset=['nome do indicador']) \
-                        .groupby('nome do indicador')[cols_agrupar_existentes].sum().reset_index()
-
-                    dados_grafico_detalhado = pd.DataFrame()
-                    for coluna in cols_agrupar_existentes:
-                        temp_df = df_agrupado[['nome do indicador', coluna]].copy()
-                        temp_df.rename(columns={coluna: 'Valor'}, inplace=True)
-                        if coluna == 'resultado ciclo':
-                            temp_df['Tipo'] = 'Resultado Ciclo'
-                        elif coluna == 'resultado previsto':
-                            temp_df['Tipo'] = 'Resultado Previsto'
-                        elif coluna == 'meta100':
-                            temp_df['Tipo'] = 'Meta 100'
-                        elif coluna == 'meta300':
-                            temp_df['Tipo'] = 'Meta 300'
-                        elif coluna == 'meta500':
-                            temp_df['Tipo'] = 'Meta 500'
-                        else:
-                            temp_df['Tipo'] = coluna
-                        dados_grafico_detalhado = pd.concat([dados_grafico_detalhado, temp_df])
-
-                    dados_grafico_detalhado = dados_grafico_detalhado.dropna()
-
-                    fig_detalhe = px.bar(
-                        dados_grafico_detalhado,
-                        x='nome do indicador',
-                        y='Valor',
-                        color='Tipo',
-                        barmode='group',
-                        text_auto=True,
-                        title='Comparação de Resultado e Metas por Indicador',
-                        color_discrete_map={
-                            'Resultado Ciclo': 'royalblue',
-                            'Resultado Previsto': 'skyblue',
-                            'Meta 100': 'lightgreen',
-                            'Meta 300': 'salmon',
-                            'Meta 500': 'gold'
-                        }
-                    )
-                    st.plotly_chart(fig_detalhe, use_container_width=True)
-                else:
-                    st.warning("Coluna 'nome do indicador' não encontrada para gerar o gráfico detalhado.")
-
-                contagem = {}
-                if 'meta100' in df_metas_batidas:
-                    contagem['Meta 100'] = (df_metas_batidas['resultado ciclo'] >= df_metas_batidas['meta100']).sum()
-                if 'meta300' in df_metas_batidas:
-                    contagem['Meta 300'] = (df_metas_batidas['resultado ciclo'] >= df_metas_batidas['meta300']).sum()
-                if 'meta500' in df_metas_batidas:
-                    contagem['Meta 500'] = (df_metas_batidas['resultado ciclo'] >= df_metas_batidas['meta500']).sum()
-
-                df_contagem = pd.DataFrame(list(contagem.items()), columns=['Meta', 'Total'])
-
-                if not df_contagem.empty:
-                    st.subheader('Contagem de Metas Batidas')
-                    fig = px.bar(
-                        df_contagem,
-                        x='Meta',
-                        y='Total',
-                        text_auto=True,
-                        color='Meta',
-                        color_discrete_sequence=px.colors.qualitative.Pastel
-                    )
-                    st.plotly_chart(fig, use_container_width=True)
-
-                st.subheader('Lista de Registros que Bateram a Meta')
-
-                colunas_exibicao = ['numero do projeto', 'nome do indicador', 'tipo de agregaçao',
-                                    'regional', 'estado', 'município', 'negócio', 'unidade',
-                                    'resultado ciclo', 'resultado previsto', 'meta100', 'meta300', 'meta500']
-
-                colunas_existentes = [col for col in colunas_exibicao if col in df_metas_batidas.columns]
-                coluna_ordenacao = 'regional' if 'regional' in df_metas_batidas.columns else 'numero do projeto'
-
-                if coluna_ordenacao in df_metas_batidas:
-                    df_metas_batidas_ordenado = df_metas_batidas.sort_values(by=coluna_ordenacao, ascending=True)
-                else:
-                    df_metas_batidas_ordenado = df_metas_batidas
-
-                st.dataframe(df_metas_batidas_ordenado[colunas_existentes])
-
-            else:
-                st.info("Nenhum registro encontrado que tenha batido alguma meta com os filtros aplicados.")
-
+    if df_com_resultado.empty:
+        st.info("Nenhum registro com 'resultado ciclo' preenchido para analisar metas batidas.")
     else:
-        st.info("Nenhum dado encontrado para a sua seleção. Por favor, ajuste os filtros na barra lateral.")
+        m100 = df_com_resultado.get('meta100', float('inf')).fillna(float('inf'))
+        m300 = df_com_resultado.get('meta300', float('inf')).fillna(float('inf'))
+        m500 = df_com_resultado.get('meta500', float('inf')).fillna(float('inf'))
+
+        filtro_metas = (df_com_resultado['resultado ciclo'] >= m100) | \
+                       (df_com_resultado['resultado ciclo'] >= m300) | \
+                       (df_com_resultado['resultado ciclo'] >= m500)
+
+        df_metas_batidas = df_com_resultado[filtro_metas].copy()
+
+        if not df_metas_batidas.empty:
+
+            st.subheader('Resultado vs Metas por Indicador')
+
+            if 'nome do indicador' in df_metas_batidas.columns:
+                df_metas_batidas['nome do indicador'] = df_metas_batidas['nome do indicador'].astype(
+                    str).str.strip().str.title()
+                df_metas_batidas['nome do indicador'] = df_metas_batidas['nome do indicador'].replace('Evasão',
+                                                                                                      '% de evasão')
+
+            cols_agrupar = ['resultado ciclo', 'resultado previsto', 'meta100', 'meta300', 'meta500']
+            cols_agrupar_existentes = [col for col in cols_agrupar if col in df_metas_batidas.columns]
+
+            if 'nome do indicador' in df_metas_batidas.columns:
+                df_agrupado = df_metas_batidas.dropna(subset=['nome do indicador']) \
+                    .groupby('nome do indicador')[cols_agrupar_existentes].sum().reset_index()
+
+                dados_grafico_detalhado = pd.DataFrame()
+                for coluna in cols_agrupar_existentes:
+                    temp_df = df_agrupado[['nome do indicador', coluna]].copy()
+                    temp_df.rename(columns={coluna: 'Valor'}, inplace=True)
+                    if coluna == 'resultado ciclo':
+                        temp_df['Tipo'] = 'Resultado Ciclo'
+                    elif coluna == 'resultado previsto':
+                        temp_df['Tipo'] = 'Resultado Previsto'
+                    elif coluna == 'meta100':
+                        temp_df['Tipo'] = 'Meta 100'
+                    elif coluna == 'meta300':
+                        temp_df['Tipo'] = 'Meta 300'
+                    elif coluna == 'meta500':
+                        temp_df['Tipo'] = 'Meta 500'
+                    else:
+                        temp_df['Tipo'] = coluna
+                    dados_grafico_detalhado = pd.concat([dados_grafico_detalhado, temp_df])
+
+                dados_grafico_detalhado = dados_grafico_detalhado.dropna()
+
+                fig_detalhe = px.bar(
+                    dados_grafico_detalhado,
+                    x='nome do indicador',
+                    y='Valor',
+                    color='Tipo',
+                    barmode='group',
+                    text_auto=True,
+                    title='Comparação de Resultado e Metas por Indicador',
+                    color_discrete_map={
+                        'Resultado Ciclo': 'royalblue',
+                        'Resultado Previsto': 'skyblue',
+                        'Meta 100': 'lightgreen',
+                        'Meta 300': 'salmon',
+                        'Meta 500': 'gold'
+                    },
+                    labels={
+                        'nome do indicador': 'Indicador',  # Traduz o eixo X
+                        'Valor': 'Valor Total',  # Traduz o eixo Y
+                        'Tipo': 'Métrica'  # Traduz a legenda
+                    }
+                )
+                st.plotly_chart(fig_detalhe, use_container_width=True)
+            else:
+                st.warning("Coluna 'nome do indicador' não encontrada para gerar o gráfico detalhado.")
+
+            contagem = {}
+            if 'meta100' in df_metas_batidas:
+                contagem['Meta 100'] = (df_metas_batidas['resultado ciclo'] >= df_metas_batidas['meta100'].fillna(
+                    float('inf'))).sum()
+            if 'meta300' in df_metas_batidas:
+                contagem['Meta 300'] = (df_metas_batidas['resultado ciclo'] >= df_metas_batidas['meta300'].fillna(
+                    float('inf'))).sum()
+            if 'meta500' in df_metas_batidas:
+                contagem['Meta 500'] = (df_metas_batidas['resultado ciclo'] >= df_metas_batidas['meta500'].fillna(
+                    float('inf'))).sum()
+
+            df_contagem = pd.DataFrame(list(contagem.items()), columns=['Meta', 'Total'])
+
+            if not df_contagem.empty:
+                st.subheader('Contagem de Metas Batidas')
+                fig = px.bar(
+                    df_contagem,
+                    x='Meta',
+                    y='Total',
+                    text_auto=True,
+                    color='Meta',
+                    color_discrete_sequence=px.colors.qualitative.Pastel
+                )
+                st.plotly_chart(fig, use_container_width=True)
+
+            st.subheader('Lista de Registros que Bateram a Meta')
+
+            colunas_exibicao = ['numero do projeto', 'nome do projeto', 'nome do indicador', 'tipo de agregaçao',
+                                'regional', 'estado', 'município', 'negócio', 'unidade',
+                                'resultado ciclo', 'resultado previsto', 'meta100', 'meta300', 'meta500']
+
+            colunas_existentes = [col for col in colunas_exibicao if col in df_metas_batidas.columns]
+            coluna_ordenacao = 'regional' if 'regional' in df_metas_batidas.columns else 'numero do projeto'
+
+            if coluna_ordenacao in df_metas_batidas:
+                df_metas_batidas_ordenado = df_metas_batidas.sort_values(by=coluna_ordenacao, ascending=True)
+            else:
+                df_metas_batidas_ordenado = df_metas_batidas
+
+            st.dataframe(df_metas_batidas_ordenado[colunas_existentes])
+
+        else:
+            st.info("Nenhum registro encontrado que tenha batido alguma meta com os filtros aplicados.")
 
 else:
-    st.info("Por favor, use os filtros na barra lateral para selecionar dados e exibir as visualizações.")
+    # Esta mensagem agora só aparece se o dataframe filtrado (pela sidebar) estiver vazio
+    st.info("Nenhum dado encontrado para a sua seleção. Por favor, ajuste os filtros na barra lateral.")
