@@ -34,13 +34,13 @@ def load_csv_from_repo(filepath):
             st.error(f"Erro Crítico: Arquivo '{filepath}' não encontrado. Faça o 'git add' e 'git push' dele.")
             return pd.DataFrame()
 
-        # --- MODIFICADO: Tenta ler com PONTO E VÍRGULA (;) primeiro ---
         try:
-            df = pd.read_csv(filepath, sep=';')
+            # --- MODIFICAÇÃO AQUI: Adicionado encoding='latin1' ---
+            df = pd.read_csv(filepath, sep=';', encoding='latin1')
         except (pd.errors.ParserError, UnicodeDecodeError):
-            # Se falhar, tenta com VÍRGULA (,) como último recurso
-            st.warning(f"Falha ao ler {filepath} com ';'. Tentando com ','...")
-            df = pd.read_csv(filepath, sep=',')
+            st.warning(f"Falha ao ler {filepath} com ';' e latin1. Tentando com ',' e latin1...")
+            # --- MODIFICAÇÃO AQUI: Adicionado encoding='latin1' ---
+            df = pd.read_csv(filepath, sep=',', encoding='latin1')
 
         # Padroniza nomes das colunas para minúsculas logo na leitura
         df.columns = df.columns.str.strip().str.lower()
@@ -48,8 +48,7 @@ def load_csv_from_repo(filepath):
         return df
 
     except Exception as e:
-        st.error(
-            f"Erro ao carregar o arquivo CSV '{filepath}': {e}. Verifique se ele foi salvo como CSV (separado por ponto e vírgula).")
+        st.error(f"Erro ao carregar o arquivo CSV '{filepath}': {e}.")
         return pd.DataFrame()
 
 
@@ -68,31 +67,29 @@ if df_projetos.empty or df_indicadores.empty:
 st.subheader("Processo de Limpeza e Preparação")
 
 # Verifica as colunas chave (em minúsculo, pois já foram convertidas)
-if 'id gis' not in df_projetos.columns:
-    # A imagem do erro anterior mostrou 'cadastro gis'
-    if 'cadastro gis' in df_projetos.columns:
-        df_projetos.rename(columns={'cadastro gis': 'id gis'}, inplace=True)
+# A imagem do erro anterior mostrou 'cadastro gis', então vamos checar por ele.
+if 'cadastro gis' not in df_projetos.columns:
+    if 'id gis' in df_projetos.columns:
+        df_projetos.rename(columns={'id gis': 'cadastro gis'}, inplace=True)
     else:
-        st.error(
-            f"Erro Crítico: Coluna 'id gis' ou 'cadastro gis' não encontrada em '{PROJETOS_FILE}' (vinda de 'Planilha1').")
+        st.error(f"Erro Crítico: Coluna 'cadastro gis' ou 'id gis' não encontrada em '{PROJETOS_FILE}'.")
         st.write("Colunas encontradas:", df_projetos.columns.tolist())
         st.stop()
 
 if 'nº projeto' not in df_indicadores.columns:
-    st.error(
-        f"Erro Crítico: Coluna 'nº projeto' não encontrada em '{INDICADORES_FILE}' (vinda de 'Relatório_Extraído').")
+    st.error(f"Erro Crítico: Coluna 'nº projeto' não encontrada em '{INDICADORES_FILE}'.")
     st.write("Colunas encontradas:", df_indicadores.columns.tolist())
     st.stop()
 
 # Limpa IDs inválidos e Renomeia as colunas chave para 'numero do projeto'
 invalid_values_for_keys = ['n/a', 'pendente', 'null']
 
-# Limpa df_projetos ('id gis')
-df_projetos.dropna(subset=['id gis'], inplace=True)
-df_projetos['id gis'] = df_projetos['id gis'].astype(str).str.strip().str.split('.').str[0]
-df_projetos = df_projetos[~df_projetos['id gis'].str.lower().isin(invalid_values_for_keys)]
-df_projetos.rename(columns={'id gis': 'numero do projeto'}, inplace=True)
-st.info(f"'{PROJETOS_FILE}' limpo (usando 'id gis').")
+# Limpa df_projetos (usando 'cadastro gis')
+df_projetos.dropna(subset=['cadastro gis'], inplace=True)
+df_projetos['cadastro gis'] = df_projetos['cadastro gis'].astype(str).str.strip().str.split('.').str[0]
+df_projetos = df_projetos[~df_projetos['cadastro gis'].str.lower().isin(invalid_values_for_keys)]
+df_projetos.rename(columns={'cadastro gis': 'numero do projeto'}, inplace=True)
+st.info(f"'{PROJETOS_FILE}' limpo (usando 'cadastro gis').")
 
 # Limpa df_indicadores ('nº projeto')
 df_indicadores.dropna(subset=['nº projeto'], inplace=True)
