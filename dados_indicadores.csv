@@ -1,8 +1,6 @@
-﻿Nº Projeto;Nome Projeto;Unidade;Município;Nome do Indicador;Tipo de Agregacao;Meta100;Meta300;Meta500;RESULTADO CICLO;RESULTADO PREVISTO;META CICLO;Meta Ano 
-604;ReDes Incubação - Pesca - São Félix/BA (Fazenda Pilar);Pedra do Cavalo;São Félix;Evolução na Régua de maturidade;Último Valor;2;3;4;0;3;0;300
-605;ReDes Incubação - Pesca - Maragogipe/BA (Enseada);Pedra do Cavalo;Maragogipe;Evolução na Régua de maturidade;Último Valor;2;3;4;0;3;0;300
-606;ReDes Negócios - Agricultura - Maragogipe/BA (São Roque);Pedra do Cavalo;Maragogipe;Quantidade de produtos da olericultura conforme implementação de quintais produtivos ;Acumular;1260;1575;1890;0;1575;0;300
-607;ReDes Negócios - Ostras - Cachoeira/BA (Kaonge);Pedra do Cavalo;Cachoeira;Renda total gerada no projeto ;Último Valor; R$ 10.716,00 ; R$ 13.395,00 ; R$ 16.074,00 ;0;0;0;0
+Nº Projeto;Nome Projeto;Unidade;Município;Nome do Indicador;Tipo de Agregacao;Meta100;Meta300;Meta500;RESULTADO CICLO;RESULTADO PREVISTO;META CICLO;Meta Ano 
+606;ReDes Negócios - Agricultura - Maragogipe/BA (São Roque);Pedra do Cavalo;Maragogipe;Quantidade de produtos da olericultura conforme implementação de quintais produtivos ;Acumular;1260;1575;1890;1416;1575;199;300
+607;ReDes Negócios - Ostras - Cachoeira/BA (Kaonge);Pedra do Cavalo;Cachoeira;Renda total gerada no projeto ;Último Valor; R$ 10.716,00 ; R$ 13.395,00 ; R$ 16.074,00 ; R$ 18.510,00 ; R$ 18.510,00 ;500;500
 608;ReDes Incubação - Pesca -Cachoeira/BA (São Francisco);Pedra do Cavalo;Cachoeira;Evolução na Régua de maturidade;Último Valor;2;4;6;0;4;0;300
 614;VIA - Fortalecimento CMDCA - Itapecerica da Serra/SP - Ano 2;Sudeste;Itapecerica da Serra;Avanço na Matriz de Competências;Último Valor;7;8;9;0;8;0;300
 621;PVE Graduados - Cachoeira/BA - Ano 4;Pedra do Cavalo;Cachoeira;Avanço na Matriz de Competências;Último Valor;7;8;9;8;8;300;300
@@ -14,26 +12,31 @@
 644;PVE Graduados - Camaçari/BA -  Ano 4;Nordeste;Camaçari;Avanço na Matriz de Competências;Último Valor;7;8;9;8;8;300;300
 645;PVE Graduados - Nobres/MT - Ano 4;Centro-Norte;Nobres;Avanço na Matriz de Competências;Último Valor;7;8;9;8;8;300;300
 646;PVE - Salto do Pirapora/SP - Ano 2;Sudeste;Salto de Pirapora;Avanço na Matriz de Competências;Último Valor;7;8;9;8;8;300;300
-647;ReDes Negócios -  Mulheres Marisqueiras - Maragogipe/BA;Pedra do Cavalo;Maragogipe;Renda total gerada no projeto ;Acumular; R$ 41.966,00 ; R$ 52.458,00 ; R$ 62.950,00 ; R$ 28.137,55 ; R$ 41.966,00 ;0;100
-648;ReDes Negócios - Força Quilombola do Dendê - Maragogipe/BA;Pedra do Cavalo;Maragogipe;Renda total gerada no projeto ;Acumular; R$ 47.971,00 ; R$ 59.964,00 ; R$ 71.956,00 ; R$ 24.110,60 ; R$ 47.971,00 ;0;100
-649;ReDes Negócios - Galinheiros do Tabuleiro - Maragogipe/BA;Pedra do Cavalo;Maragogipe;Renda total gerada no projeto ;Acumular; R$ 43.279,00 ; R$ 54.099,00 ; R$ 64.919,00 ; R$ 29.641,45 ; R$ 54.099,00 ;0;300
+647;ReDes Negócios -  Mulheres Marisqueiras - Maragogipe/BA;Pedra do Cavalo;Maragogipe;Renda total gerada no projeto ;Acumular; R$ 41.966,00 ; R$ 52.458,00 ; R$ 62.950,00 ; R$ 63.609,55 ; R$ 64.599,55 ;500;500
+648;ReDes Negócios - Força Quilombola do Dendê - Maragogipe/BA;Pedra do Cavalo;Maragogipe;Renda total gerada no projeto ;Acumular; R$ 47.971,00 ; R$ 59.964,00 ; R$ 71.956,00 ; R$ 36.183,40 ; R$ 39.683,40 ;0;0
+649;ReDes Negócios - Galinheiros do Tabuleiro - Maragogipe/BA;Pedra do Cavalo;Maragogipe;Renda total gerada no projeto ;Acumular; R$ 43.279,00 ; R$ 54.099,00 ; R$ 64.919,00 ; R$ 63.992,50 ; R$ 64.992,50 ;483;500
 678;AGP Saúde - Xambioá/TO - Ano 2;Centro-Norte;Xambioá;Avanço na Matriz de Competências;Último Valor;4;5;6;5;5;300;300
-679;AGP Saúde - Primavera/PA - Ano 3;Nordeste;Primavera;Avanço na Matriz de Competências;Último Valor;5;6;7;5;6;100;300
+679;AGP Saúde - Primavera/PA - Ano 3;Nordeste;Primavera;Avanço na Matriz de Competências;Último Valor;5;6;7;6;6;300;300
 680;PVE Graduados - Capanema/PA - Ano 4;Nordeste;Capanema;Avanço na Matriz de Competências ;Último Valor;7;8;9;8;8;300;300
-682; Engaja - Pedra do Cavalo/BA - Ano 9;Pedra do Cavalo;Cachoeira;Stakeholders que se mantiveram ou evoluiram na matriz de colaboração ;Último Valor;70;80;90;0;80;0;300
-700;AGP Saúde - Rio Branco do Sul/PR - Ano 1;Sul;Rio Branco do Sul;Avanço na Matriz de Competências;Último Valor;6;7;8;5;7;0;300
-725;AGP Segurança Alimentar e Nutricional nas Escolas - Cachoeira/BA Ano 1;Pedra do Cavalo;Cachoeira;"Elaboração do mapeamento de produtos e produtores locais; realização de mentorias junto aos servidores públicos; e realização de oficina(s) junto a pequenos agricultores.";Último Valor;80;100;120;0;100;0;300
-727;Plano de Relacionamento com Comunidade - Corumbá;Centro-Norte;Corumbá;% satisfação em pesquisa;Último Valor;64;80;95;0;0;0;0
-727;Plano de Relacionamento com Comunidade - Corumbá;Centro-Norte;Corumbá;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;0;0;0
-727;Plano de Relacionamento com Comunidade - Corumbá;Centro-Norte;Corumbá;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;0;0;0;0
-727;Plano de Relacionamento com Comunidade - Corumbá;Centro-Norte;Corumbá;Número de voluntários;Último Valor;10;12;14;0;0;0;0
-728;Plano de Relacionamento com Comunidade - Cuiabá;Centro-Norte;Cuiabá;% satisfação em pesquisa;Último Valor;64;80;95;0;0;0;0
-728;Plano de Relacionamento com Comunidade - Cuiabá;Centro-Norte;Cuiabá;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;0;0;0
-728;Plano de Relacionamento com Comunidade - Cuiabá;Centro-Norte;Cuiabá;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;24;30;36;0;0;0;0
+682; Engaja - Pedra do Cavalo/BA - Ano 9;Pedra do Cavalo;Cachoeira;Stakeholders que se mantiveram ou evoluiram na matriz de colaboração ;Último Valor;70;80;90;80;80;300;300
+700;AGP Saúde - Rio Branco do Sul/PR - Ano 1;Sul;Rio Branco do Sul;Avanço na Matriz de Competências;Último Valor;6;7;8;7;7;300;300
+725;AGP Segurança Alimentar e Nutricional nas Escolas - Cachoeira/BA Ano 1;Pedra do Cavalo;Cachoeira;"Elaboração do mapeamento de produtos e produtores locais; realização de mentorias junto aos servidores públicos; e realização de oficina(s) junto a pequenos agricultores.";Último Valor;80;100;120;100;100;300;300
+677;Qualificação de Organizações - Pedra do Cavalo/BA - Ano 5;Pedra do Cavalo;Cachoeira;Avanço na Matriz de Competências (São Roque);Último Valor;7;9;11;9;9;300;300
+677;Qualificação de Organizações - Pedra do Cavalo/BA - Ano 5;Pedra do Cavalo;Cachoeira;Avanço na Matriz de Competências (Grupo Social Transforma);Último Valor;7;9;11;9;9;300;300
+677;Qualificação de Organizações - Pedra do Cavalo/BA - Ano 5;Pedra do Cavalo;Cachoeira;Avanço na Matriz de Competências (Ponta de Souza);Último Valor;8;10;12;10;10;300;300
+677;Qualificação de Organizações - Pedra do Cavalo/BA - Ano 5;Pedra do Cavalo;Cachoeira;Avanço na Matriz de Competências (Enseada);Último Valor;8;10;12;10;10;300;300
+677;Qualificação de Organizações - Pedra do Cavalo/BA - Ano 5;Pedra do Cavalo;Cachoeira;Avanço na Matriz de Competências (Núcleo de Mulheres do Rosarinho);Último Valor;7;9;11;9;9;300;300
+727;Plano de Relacionamento com Comunidade - Corumbá;Centro-Norte;Corumbá;% satisfação em pesquisa;Último Valor;64;80;95;98;98;500;500
+727;Plano de Relacionamento com Comunidade - Corumbá;Centro-Norte;Corumbá;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;5;5;500;500
+727;Plano de Relacionamento com Comunidade - Corumbá;Centro-Norte;Corumbá;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;80;80;500;500
+727;Plano de Relacionamento com Comunidade - Corumbá;Centro-Norte;Corumbá;Número de voluntários;Último Valor;10;12;14;23;23;500;500
+728;Plano de Relacionamento com Comunidade - Cuiabá;Centro-Norte;Cuiabá;% satisfação em pesquisa;Último Valor;64;80;95;97;97;500;500
+728;Plano de Relacionamento com Comunidade - Cuiabá;Centro-Norte;Cuiabá;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;6;6;500;500
+728;Plano de Relacionamento com Comunidade - Cuiabá;Centro-Norte;Cuiabá;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;24;30;36;105;105;500;500
 728;Plano de Relacionamento com Comunidade - Cuiabá;Centro-Norte;Cuiabá;Número de voluntários;Último Valor;17;21;24;0;0;0;0
-729;Plano de Relacionamento com Comunidade - Edealina;Centro-Norte;Edealina;% satisfação em pesquisa;Último Valor;64;80;95;0;0;0;0
-729;Plano de Relacionamento com Comunidade - Edealina;Centro-Norte;Edealina;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;0;0;0
-729;Plano de Relacionamento com Comunidade - Edealina;Centro-Norte;Edealina;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;24;30;36;0;0;0;0
+729;Plano de Relacionamento com Comunidade - Edealina;Centro-Norte;Edealina;% satisfação em pesquisa;Último Valor;64;80;95;98;98;500;500
+729;Plano de Relacionamento com Comunidade - Edealina;Centro-Norte;Edealina;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;4;4;500;500
+729;Plano de Relacionamento com Comunidade - Edealina;Centro-Norte;Edealina;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;24;30;36;19;19;0;0
 729;Plano de Relacionamento com Comunidade - Edealina;Centro-Norte;Edealina;Número de voluntários;Último Valor;17;20;24;0;0;0;0
 730;Plano de Relacionamento com Comunidad - Nobres;Centro-Norte;Nobres;% satisfação em pesquisa;Último Valor;64;80;95;0;0;0;0
 730;Plano de Relacionamento com Comunidad - Nobres;Centro-Norte;Nobres;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;2;0;300
@@ -54,59 +57,106 @@
 736;Plano de Relacionamento com Comunidade - Manaus;Centro-Norte;Manaus;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;0;0;0
 736;Plano de Relacionamento com Comunidade - Manaus;Centro-Norte;Manaus;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;0;0;0;0
 736;Plano de Relacionamento com Comunidade - Manaus;Centro-Norte;Manaus;Número de voluntários;Último Valor;4;5;5;0;0;0;0
+737;Plano de Relacionamento;Nordeste;Trindade;% satisfação em pesquisa;Último Valor;60;80;100;0;0;0;0
+737;Plano de Relacionamento;Nordeste;Trindade;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;0;0;0
+737;Plano de Relacionamento;Nordeste;Trindade;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;10;30;40;0;0;0;0
+737;Plano de Relacionamento;Nordeste;Trindade;Número de voluntários;Último Valor;2;2;3;0;0;0;0
+738;Plano de Relacionamento;Nordeste;Ananindeua;% satisfação em pesquisa;Último Valor;60;80;100;0;0;0;0
+738;Plano de Relacionamento;Nordeste;Ananindeua;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;0;0;0
+738;Plano de Relacionamento;Nordeste;Ananindeua;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;10;30;40;0;0;0;0
+738;Plano de Relacionamento;Nordeste;Ananindeua;Número de voluntários;Último Valor;4;5;7;0;0;0;0
+739;Plano de Relacionamento;Nordeste;Camaçari;% satisfação em pesquisa;Último Valor;60;80;100;0;0;0;0
+739;Plano de Relacionamento;Nordeste;Camaçari;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;2;3;4;0;0;0;0
+739;Plano de Relacionamento;Nordeste;Camaçari;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;10;30;40;0;0;0;0
+739;Plano de Relacionamento;Nordeste;Camaçari;Número de voluntários;Último Valor;7;8;9;0;0;0;0
+740;Conselho Comunitário;Nordeste;Sobral;Fórum;Último Valor;1;1;1;0;0;0;0
+740;Conselho Comunitário;Nordeste;Sobral;Reuniões;Último Valor;1;2;4;0;2;0;300
+740;Conselho Comunitário;Nordeste;Sobral;Grupos de Trabalho;Último Valor;1;2;2;0;4;0;500
+741;Plano de Relacionamento;Nordeste;Sobral;% satisfação em pesquisa;Último Valor;60;80;100;0;0;0;0
+741;Plano de Relacionamento;Nordeste;Sobral;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;0;0;0
+741;Plano de Relacionamento;Nordeste;Sobral;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;10;30;40;0;0;0;0
+741;Plano de Relacionamento;Nordeste;Sobral;Número de voluntários;Último Valor;27;32;38;0;0;0;0
+743;Plano de Relacionamento;Nordeste;Laranjeiras;% satisfação em pesquisa;Último Valor;75;85;95;0;0;0;0
+743;Plano de Relacionamento;Nordeste;Laranjeiras;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;0;0;0
+743;Plano de Relacionamento;Nordeste;Laranjeiras;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;16;20;24;0;20;0;300
+743;Plano de Relacionamento;Nordeste;Laranjeiras;Número de voluntários;Último Valor;34;41;47;0;10;0;0
+744;Plano de Relacionamento;Nordeste;Paulista;% satisfação em pesquisa;Último Valor;60;80;100;0;0;0;0
+744;Plano de Relacionamento;Nordeste;Paulista;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;0;0;0
+744;Plano de Relacionamento;Nordeste;Paulista;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;10;20;30;0;0;0;0
+744;Plano de Relacionamento;Nordeste;Paulista;Número de voluntários;Último Valor;5;6;7;0;0;0;0
+745;Valor VC Apicultura;Nordeste;Primavera;Reuniões ;Último Valor;1;2;4;0;2;0;300
+745;Valor VC Apicultura;Nordeste;Primavera;Produção;Último Valor;1;1;2;0;0;0;0
+745;Valor VC Apicultura;Nordeste;Primavera;Avaliação;Último Valor;1;1;1;0;0,52;0;0
+746;Valor VC Castanha;Nordeste;Primavera;Reuniões;Último Valor;1;2;5;0;3;0;367
+746;Valor VC Castanha;Nordeste;Primavera;Mapeamento;Último Valor;1;1;1;0;1;0;500
+746;Valor VC Castanha;Nordeste;Primavera;Capacitação;Último Valor;1;1;2;0;0;0;0
+746;Valor VC Castanha;Nordeste;Primavera;Relatório;Último Valor;1;1;2;0;0;0;0
+747;Valor VC Siquiriba;Nordeste;Primavera;Evento;Último Valor;1;1;2;0;1;0;300
+747;Valor VC Siquiriba;Nordeste;Primavera;Elaboração de Projetos;Último Valor;1;1;2;0;0;0;0
+748;Conselho Comunitário;Nordeste;Primavera;Capacitação;Último Valor;1;1;2;0;0;0;0
+748;Conselho Comunitário;Nordeste;Primavera;Reuniçao do MSP;Último Valor;2;4;5;0;5;0;500
+748;Conselho Comunitário;Nordeste;Primavera;Avaliação;Último Valor;1;1;1;0;0;0;0
+749;Plano de Relacionamento;Nordeste;Primavera;Número de participações nas atividades oferecidas no projeto;Acumular;10;30;40;0;0;0;0
+749;Plano de Relacionamento;Nordeste;Primavera;[EUP] Horas de capacitação coletiva;Último Valor;1;2;3;0;0;0;0
+749;Plano de Relacionamento;Nordeste;Primavera;% satisfação em pesquisa;Último Valor;60;80;100;0;0;0;0
+750;Plano de Relacionamento;Nordeste;São Luís;% satisfação em pesquisa;Último Valor;60;80;100;0;0;0;0
+750;Plano de Relacionamento;Nordeste;São Luís;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;2;0;0;0;0
+750;Plano de Relacionamento;Nordeste;São Luís;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;5;7;10;0;0;0;0
+750;Plano de Relacionamento;Nordeste;São Luís;Número de voluntários;Último Valor;7;8;10;0;0;0;0
 763;Plano de Relacionamento - Araçariguama;Sudeste;Araçariguama;% satisfação em pesquisa;Último Valor;64;80;95;0;80;0;300
 763;Plano de Relacionamento - Araçariguama;Sudeste;Araçariguama;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;1;2;100;300
 763;Plano de Relacionamento - Araçariguama;Sudeste;Araçariguama;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;24;30;36;24;30;100;300
-763;Plano de Relacionamento - Araçariguama;Sudeste;Araçariguama;Número de voluntários;Último Valor;6;8;9;5;11;0;500
+763;Plano de Relacionamento - Araçariguama;Sudeste;Araçariguama;Número de voluntários;Último Valor;6;8;9;5;8;0;300
 764;Plano de Relacionamento - Barueri;Sudeste;Barueri;% satisfação em pesquisa;Último Valor;64;80;95;100;100;500;500
-764;Plano de Relacionamento - Barueri;Sudeste;Barueri;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;1;2;100;300
-764;Plano de Relacionamento - Barueri;Sudeste;Barueri;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;11;20;300;500
-764;Plano de Relacionamento - Barueri;Sudeste;Barueri;Número de voluntários;Último Valor;7;9;10;5;8;0;200
+764;Plano de Relacionamento - Barueri;Sudeste;Barueri;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;2;2;300;300
+764;Plano de Relacionamento - Barueri;Sudeste;Barueri;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;20;20;500;500
+764;Plano de Relacionamento - Barueri;Sudeste;Barueri;Número de voluntários;Último Valor;7;9;10;9;9;300;300
 765;Plano de Relacionamento - Cajamar;Sudeste;Cajamar;% satisfação em pesquisa;Último Valor;64;80;95;0;0;0;0
-765;Plano de Relacionamento - Cajamar;Sudeste;Cajamar;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;2;0;300
+765;Plano de Relacionamento - Cajamar;Sudeste;Cajamar;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;1;2;100;300
 765;Plano de Relacionamento - Cajamar;Sudeste;Cajamar;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;0;0;0;0
-765;Plano de Relacionamento - Cajamar;Sudeste;Cajamar;Número de voluntários;Último Valor;7;9;10;7;8;100;200
+765;Plano de Relacionamento - Cajamar;Sudeste;Cajamar;Número de voluntários;Último Valor;7;8;9;8;8;200;200
 766;Plano de Relacionamento - Itapecerica da Serra;Sudeste;Itapecerica da Serra;% satisfação em pesquisa;Último Valor;64;80;95;0;97;0;500
 766;Plano de Relacionamento - Itapecerica da Serra;Sudeste;Itapecerica da Serra;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;2;0;300
 766;Plano de Relacionamento - Itapecerica da Serra;Sudeste;Itapecerica da Serra;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;0;8;0;100
 766;Plano de Relacionamento - Itapecerica da Serra;Sudeste;Itapecerica da Serra;Número de voluntários;Último Valor;6;7;8;0;7;0;300
-767;Plano de Relacionamento - Itapeva;Sudeste;Itapeva;% satisfação em pesquisa;Último Valor;64;80;95;0;0;0;0
-767;Plano de Relacionamento - Itapeva;Sudeste;Itapeva;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;0;0;0
-767;Plano de Relacionamento - Itapeva;Sudeste;Itapeva;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;0;0;0;0
+767;Plano de Relacionamento - Itapeva;Sudeste;Itapeva;% satisfação em pesquisa;Último Valor;64;80;95;100;100;500;500
+767;Plano de Relacionamento - Itapeva;Sudeste;Itapeva;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;2;2;300;300
+767;Plano de Relacionamento - Itapeva;Sudeste;Itapeva;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;25;25;500;500
 767;Plano de Relacionamento - Itapeva;Sudeste;Itapeva;Número de voluntários;Último Valor;17;20;23;0;0;0;0
-768;Plano de Relacionamento - ITM;Sudeste;Itaú de Minas;% satisfação em pesquisa;Último Valor;64;80;95;0;96;0;500
-768;Plano de Relacionamento - ITM;Sudeste;Itaú de Minas;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;2;0;300
-768;Plano de Relacionamento - ITM;Sudeste;Itaú de Minas;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;0;40;0;500
-768;Plano de Relacionamento - ITM;Sudeste;Itaú de Minas;Número de voluntários;Último Valor;43;52;61;0;35;0;0
-769;Plano de Relacionamento - Limeira;Sudeste;Limeira;% satisfação em pesquisa;Último Valor;64;80;95;0;100;0;300
+768;Plano de Relacionamento - ITM;Sudeste;Itaú de Minas;% satisfação em pesquisa;Último Valor;64;80;95;96;96;500;500
+768;Plano de Relacionamento - ITM;Sudeste;Itaú de Minas;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;1;2;100;300
+768;Plano de Relacionamento - ITM;Sudeste;Itaú de Minas;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;40;40;500;500
+768;Plano de Relacionamento - ITM;Sudeste;Itaú de Minas;Número de voluntários;Último Valor;43;52;61;4;35;0;0
+769;Plano de Relacionamento - Limeira;Sudeste;Limeira;% satisfação em pesquisa;Último Valor;64;80;95;100;100;300;300
 769;Plano de Relacionamento - Limeira;Sudeste;Limeira;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;1;2;100;300
-769;Plano de Relacionamento - Limeira;Sudeste;Limeira;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;5;11;0;400
-769;Plano de Relacionamento - Limeira;Sudeste;Limeira;Número de voluntários;Último Valor;4;5;6;23;34;500;500
-770;Plano de Relacionamento - Cantagalo;Sudeste;Cantagalo;% satisfação em pesquisa;Último Valor;64;80;95;0;80;0;300
-770;Plano de Relacionamento - Cantagalo;Sudeste;Cantagalo;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;2;0;300
-770;Plano de Relacionamento - Cantagalo;Sudeste;Cantagalo;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;0;30;0;500
-770;Plano de Relacionamento - Cantagalo;Sudeste;Cantagalo;Número de voluntários;Último Valor;20;24;29;0;24;0;300
+769;Plano de Relacionamento - Limeira;Sudeste;Limeira;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;11;11;400;400
+769;Plano de Relacionamento - Limeira;Sudeste;Limeira;Número de voluntários;Último Valor;4;5;6;34;34;500;500
+770;Plano de Relacionamento - Cantagalo;Sudeste;Cantagalo;% satisfação em pesquisa;Último Valor;64;80;95;80;80;300;300
+770;Plano de Relacionamento - Cantagalo;Sudeste;Cantagalo;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;2;2;300;300
+770;Plano de Relacionamento - Cantagalo;Sudeste;Cantagalo;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;78;78;500;500
+770;Plano de Relacionamento - Cantagalo;Sudeste;Cantagalo;Número de voluntários;Último Valor;20;24;29;16;24;0;300
 771;Plano de Relacionamento - Salto de Pirapora;Sudeste;Salto de Pirapora;% satisfação em pesquisa;Último Valor;64;80;95;0;0;0;0
-771;Plano de Relacionamento - Salto de Pirapora;Sudeste;Salto de Pirapora;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;2;0;300
+771;Plano de Relacionamento - Salto de Pirapora;Sudeste;Salto de Pirapora;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;1;2;100;300
 771;Plano de Relacionamento - Salto de Pirapora;Sudeste;Salto de Pirapora;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;0;0;0;0
-771;Plano de Relacionamento - Salto de Pirapora;Sudeste;Salto de Pirapora;Número de voluntários;Último Valor;45;54;64;0;24;0;0
-772;Plano de Relacionamento - Santa Cruz;Sudeste;Rio de Janeiro;% satisfação em pesquisa;Último Valor;64;80;95;0;100;0;500
-772;Plano de Relacionamento - Santa Cruz;Sudeste;Rio de Janeiro;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;2;0;300
-772;Plano de Relacionamento - Santa Cruz;Sudeste;Rio de Janeiro;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;0;22;0;500
-772;Plano de Relacionamento - Santa Cruz;Sudeste;Rio de Janeiro;Número de voluntários;Último Valor;5;6;7;0;11;0;500
-773;Plano de Relacionamento - SHE;Sudeste;Votorantim;% satisfação em pesquisa;Último Valor;64;80;95;0;80;0;300
-773;Plano de Relacionamento - SHE;Sudeste;Votorantim;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;1;2;100;300
-773;Plano de Relacionamento - SHE;Sudeste;Votorantim;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;5;12;0;500
-773;Plano de Relacionamento - SHE;Sudeste;Votorantim;Número de voluntários;Último Valor;34;41;47;20;41;0;300
-774;Plano de Relacionamento - Santa Isabel;Sudeste;Santa Isabel;% satisfação em pesquisa;Último Valor;64;80;95;0;95;0;500
+771;Plano de Relacionamento - Salto de Pirapora;Sudeste;Salto de Pirapora;Número de voluntários;Último Valor;45;54;64;27;27;0;0
+772;Plano de Relacionamento - Santa Cruz;Sudeste;Rio de Janeiro;% satisfação em pesquisa;Último Valor;64;80;95;100;100;0;500
+772;Plano de Relacionamento - Santa Cruz;Sudeste;Rio de Janeiro;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;1;2;0;300
+772;Plano de Relacionamento - Santa Cruz;Sudeste;Rio de Janeiro;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;22;22;0;500
+772;Plano de Relacionamento - Santa Cruz;Sudeste;Rio de Janeiro;Número de voluntários;Último Valor;5;6;7;11;11;0;500
+773;Plano de Relacionamento - SHE;Sudeste;Votorantim;% satisfação em pesquisa;Último Valor;64;80;95;80;80;300;300
+773;Plano de Relacionamento - SHE;Sudeste;Votorantim;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;2;2;300;300
+773;Plano de Relacionamento - SHE;Sudeste;Votorantim;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;10;12;300;500
+773;Plano de Relacionamento - SHE;Sudeste;Votorantim;Número de voluntários;Último Valor;34;41;47;23;41;0;300
+774;Plano de Relacionamento - Santa Isabel;Sudeste;Santa Isabel;% satisfação em pesquisa;Último Valor;64;80;95;95;95;500;500
 774;Plano de Relacionamento - Santa Isabel;Sudeste;Santa Isabel;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;1;2;100;300
-774;Plano de Relacionamento - Santa Isabel;Sudeste;Santa Isabel;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;5;7;0;0
-774;Plano de Relacionamento - Santa Isabel;Sudeste;Santa Isabel;Número de voluntários;Último Valor;6;7;8;6;8;100;500
-776;Conselho Comunitário - Itapecerica da Serra;Sudeste;Itapecerica da Serra;% Plano de ação anual realizado;Último Valor;64;80;95;0;95;0;500
+774;Plano de Relacionamento - Santa Isabel;Sudeste;Santa Isabel;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;19;19;500;500
+774;Plano de Relacionamento - Santa Isabel;Sudeste;Santa Isabel;Número de voluntários;Último Valor;6;7;8;9;9;500;500
+776;Conselho Comunitário - Itapecerica da Serra;Sudeste;Itapecerica da Serra;% Plano de ação anual realizado;Último Valor;64;80;95;95;95;500;500
 778;Conselho Comunitário - Salto de Pirapora;Sudeste;Salto de Pirapora;% Plano de ação anual realizado;Último Valor;64;80;95;0;0;0;0
-780;Evoluir - Santa Helena;Sudeste;Votorantim;% Frequência da turma;Último Valor;75;85;95;0;85;0;300
+780;Evoluir - Santa Helena;Sudeste;Votorantim;% Frequência da turma;Último Valor;75;85;95;85;85;300;300
 780;Evoluir - Santa Helena;Sudeste;Votorantim;% Evasão da turma;Último Valor;12;10;8;0;0;0;0
-780;Evoluir - Santa Helena;Sudeste;Votorantim;Número de formados;Último Valor;12;16;20;0;0;0;0
+780;Evoluir - Santa Helena;Sudeste;Votorantim;Número de formados;Último Valor;12;16;20;20;20;500;500
+781;Itaú Mais Verde e Azul;Sudeste;Itaú de Minas;Ações de conscientização Ambiental com a Comunidade;Último Valor;1;2;3;4;6;500;500
 782;Plano de Relacionamento CD;Sudeste;Osasco;% satisfação em pesquisa;Último Valor;64;80;95;0;0;0;0
 782;Plano de Relacionamento CD;Sudeste;Osasco;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;0;0;0
 782;Plano de Relacionamento CD;Sudeste;Osasco;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;0;0;0;0
@@ -115,6 +165,7 @@
 783;Plano de Relacionamento - EGX;Sudeste;São Paulo;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;5;6;7;0;0;0;0
 783;Plano de Relacionamento - EGX;Sudeste;São Paulo;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;10;12;14;0;0;0;0
 783;Plano de Relacionamento - EGX;Sudeste;São Paulo;Número de voluntários;Último Valor;74;89;103;0;0;0;0
+681;AGP Ação Climática RS - Esteio/RS - Ano 1;Sul;Esteio;Avanço na Matriz de Competências;Último Valor;8;11;13;9;11;167;300
 866;Habita VC: Cimentando o Futuro;Corporativo VC;São Paulo;Número de casas reformadas;Último Valor;20;25;30;0;0;0;0
 866;Habita VC: Cimentando o Futuro;Corporativo VC;São Paulo;número de voluntários;Último Valor;96;120;150;0;0;0;0
 866;Habita VC: Cimentando o Futuro;Corporativo VC;São Paulo;Número de beneficiários;Último Valor;76;96;120;0;0;0;0
@@ -123,76 +174,86 @@
 876;Evoluir Pocket_ Edealina;Centro-Norte;N/A;Número de formados;Último Valor;12;14;18;0;0;0;0
 876;Evoluir Pocket_ Nobres;Centro-Norte;Nobres;% Evasão da turma;Último Valor;12;10;8;0;0;0;0
 877;Evoluir Pocket_ Nobres;Centro-Norte;Nobres;% Frequência da turma;Último Valor;75;85;95;0;0;0;0
+877;Evoluir Pocket_ Nobres;Centro-Norte;Nobres;% Evasão da turma;Último Valor;12;10;8;0;0;0;0
 877;Evoluir Pocket_ Nobres;Centro-Norte;Nobres;Número de formados;Último Valor;12;14;18;0;0;0;0
 878;Evoluir Pocket_ Xambioá;N/A;N/A;% Frequência da turma;Último Valor;75;85;95;0;0;0;0
 878;Evoluir Pocket_ Xambioá;N/A;N/A;% Evasão da turma;Último Valor;12;10;8;0;0;0;0
 878;Evoluir Pocket_ Xambioá;N/A;N/A;Número de formados;Último Valor;12;14;18;0;0;0;0
-879;Plano de Relacionamento - PMA;Sul;Pinheiro Machado;% satisfação em pesquisa;Último Valor;64;80;95;0;98;0;500
-879;Plano de Relacionamento - PMA;Sul;Pinheiro Machado;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;3;0;500
-879;Plano de Relacionamento - PMA;Sul;Pinheiro Machado;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;0;24;0;500
-879;Plano de Relacionamento - PMA;Sul;Pinheiro Machado;Número de voluntários;Último Valor;6;7;8;0;0;0;0
-880;Plano de Relacionamento - EST;Sul;Esteio;% satisfação em pesquisa;Último Valor;64;80;95;0;0;0;0
-880;Plano de Relacionamento - EST;Sul;Esteio;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;2;0;300
-880;Plano de Relacionamento - EST;Sul;Esteio;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;0;0;0;0
-880;Plano de Relacionamento - EST;Sul;Esteio;Número de voluntários;Último Valor;10;12;14;0;0;0;0
-882;Plano de Relacionamento CAP;Sul;Capivari de Baixo;% satisfação em pesquisa;Último Valor;64;80;95;0;97;0;500
-882;Plano de Relacionamento CAP;Sul;Capivari de Baixo;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;1;0;100
-882;Plano de Relacionamento CAP;Sul;Capivari de Baixo;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;0;5;0;0
-882;Plano de Relacionamento CAP;Sul;Capivari de Baixo;Número de voluntários;Último Valor;7;8;9;0;0;0;0
-885;Plano de Relacionamento ITJ;Sul;Itajaí;% satisfação em pesquisa;Último Valor;64;80;95;0;0;0;0
-885;Plano de Relacionamento ITJ;Sul;Itajaí;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;0;0;0
-885;Plano de Relacionamento ITJ;Sul;Itajaí;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;0;0;0;0
-885;Plano de Relacionamento ITJ;Sul;Itajaí;Número de voluntários;Último Valor;4;5;6;0;0;0;0
-886;Plano de Relacionamento VRA;Sul;Vidal Ramos;% satisfação em pesquisa;Último Valor;64;80;95;0;0;0;0
-886;Plano de Relacionamento VRA;Sul;Vidal Ramos;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;2;0;300
-886;Plano de Relacionamento VRA;Sul;Vidal Ramos;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;0;11;0;400
-886;Plano de Relacionamento VRA;Sul;Vidal Ramos;Número de voluntários;Último Valor;15;18;22;0;1;0;0
-887;Plano de Relacionamento RBR;Sul;Rio Branco do Sul;% satisfação em pesquisa;Último Valor;64;80;95;0;92;0;460
-887;Plano de Relacionamento RBR;Sul;Rio Branco do Sul;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;2;0;3;0;500
-887;Plano de Relacionamento RBR;Sul;Rio Branco do Sul;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;0;60;0;500
-887;Plano de Relacionamento RBR;Sul;Rio Branco do Sul;Número de voluntários;Último Valor;70;84;98;0;0;0;0
+879;Plano de Relacionamento - PMA;Sul;Pinheiro Machado;% satisfação em pesquisa;Último Valor;64;80;95;98;98;500;500
+879;Plano de Relacionamento - PMA;Sul;Pinheiro Machado;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;3;3;500;500
+879;Plano de Relacionamento - PMA;Sul;Pinheiro Machado;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;65;65;500;500
+879;Plano de Relacionamento - PMA;Sul;Pinheiro Machado;Número de voluntários;Último Valor;6;7;8;1;1;0;0
+880;Plano de Relacionamento - EST;Sul;Esteio;% satisfação em pesquisa;Último Valor;64;80;95;98;98;500;500
+880;Plano de Relacionamento - EST;Sul;Esteio;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;5;5;500;500
+880;Plano de Relacionamento - EST;Sul;Esteio;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;347;347;500;500
+880;Plano de Relacionamento - EST;Sul;Esteio;Número de voluntários;Último Valor;10;12;14;17;17;500;500
+882;Plano de Relacionamento CAP;Sul;Capivari de Baixo;% satisfação em pesquisa;Último Valor;64;80;95;96;96;500;500
+882;Plano de Relacionamento CAP;Sul;Capivari de Baixo;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;5;5;500;500
+882;Plano de Relacionamento CAP;Sul;Capivari de Baixo;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;600;600;500;500
+882;Plano de Relacionamento CAP;Sul;Capivari de Baixo;Número de voluntários;Último Valor;7;8;9;12;12;500;500
+883;Regenera RS;Sul;Esteio;% Frequência da turma;Último Valor;75;90;100;55;55;0;0
+883;Regenera RS;Sul;Esteio;Horas de formações presenciais ao longo do projeto;Acumular;8;24;48;6;6;0;0
+883;Regenera RS;Sul;Esteio;% Evasão da turma;Último Valor;25;15;10;45;45;500;500
+883;Regenera RS;Sul;Esteio;Número de mulheres beneficiárias;Último Valor;90;115;140;93;93;124;124
+885;Plano de Relacionamento ITJ;Sul;Itajaí;% satisfação em pesquisa;Último Valor;64;80;95;98;98;500;500
+885;Plano de Relacionamento ITJ;Sul;Itajaí;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;4;4;500;500
+885;Plano de Relacionamento ITJ;Sul;Itajaí;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;22;22;500;500
+885;Plano de Relacionamento ITJ;Sul;Itajaí;Número de voluntários;Último Valor;4;5;6;6;6;500;500
+886;Plano de Relacionamento VRA;Sul;Vidal Ramos;% satisfação em pesquisa;Último Valor;64;80;95;99;99;500;500
+886;Plano de Relacionamento VRA;Sul;Vidal Ramos;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;8;8;500;500
+886;Plano de Relacionamento VRA;Sul;Vidal Ramos;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;70;70;500;500
+886;Plano de Relacionamento VRA;Sul;Vidal Ramos;Número de voluntários;Último Valor;15;18;22;13;13;0;0
+887;Plano de Relacionamento RBR;Sul;Rio Branco do Sul;% satisfação em pesquisa;Último Valor;64;80;95;93;93;473;473
+887;Plano de Relacionamento RBR;Sul;Rio Branco do Sul;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;2;8;8;500;500
+887;Plano de Relacionamento RBR;Sul;Rio Branco do Sul;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;62;62;500;500
+887;Plano de Relacionamento RBR;Sul;Rio Branco do Sul;Número de voluntários;Último Valor;70;84;98;32;32;0;0
 888;Plano de Relacionamento ITA;Sul;Itaperuçu;% satisfação em pesquisa;Último Valor;64;80;95;0;0;0;0
-888;Plano de Relacionamento ITA;Sul;Itaperuçu;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;0;0;0
-888;Plano de Relacionamento ITA;Sul;Itaperuçu;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;0;0;0;0
-888;Plano de Relacionamento ITA;Sul;Itaperuçu;Número de voluntários;Último Valor;2;2;3;0;0;0;0
+888;Plano de Relacionamento ITA;Sul;Itaperuçu;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;4;4;500;500
+888;Plano de Relacionamento ITA;Sul;Itaperuçu;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;250;250;500;500
+888;Plano de Relacionamento ITA;Sul;Itaperuçu;Número de voluntários;Último Valor;2;2;3;6;6;500;500
 890;Valor VC - CDRU;Sul;Itaperuçu;Novos parceiros comerciais ;Último Valor;2;3;4;0;0;0;0
 890;Valor VC - CDRU;Sul;Itaperuçu;Número de mulheres beneficiárias;Último Valor;6;8;10;0;0;0;0
 890;Valor VC - CDRU;Sul;Itaperuçu;Número de pessoas capacitadas;Último Valor;12;18;24;0;0;0;0
-891;Plano de relacionamento EGX;Sul;Curitiba;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;4;8;12;0;0;0;0
-891;Plano de relacionamento EGX;Sul;Curitiba;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;32;40;48;0;0;0;0
-891;Plano de relacionamento EGX;Sul;Curitiba;Número de voluntários;Último Valor;18;21;25;0;0;0;0
+891;Plano de relacionamento EGX;Sul;Curitiba;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;4;8;12;3;3;0;0
+891;Plano de relacionamento EGX;Sul;Curitiba;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;32;40;48;60;60;500;500
+891;Plano de relacionamento EGX;Sul;Curitiba;Número de voluntários;Último Valor;18;21;25;6;6;0;0
 892;Plano de Relacionamento - CDs Sul;Sul;N/A;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;5;10;15;0;0;0;0
 892;Plano de Relacionamento - CDs Sul;Sul;N/A;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;40;50;60;0;0;0;0
 892;Plano de Relacionamento - CDs Sul;Sul;N/A;Número de voluntários;Último Valor;5;6;7;0;0;0;0
 893;Evoluir Pocket_ Sobradinho;Centro-Norte;N/A;% Frequência da turma;Último Valor;75;85;95;0;0;0;0
-894;Evoluir Pocket_ Sobradinho;Centro-Norte;N/A;% Evasão da turma;Último Valor;12;10;8;0;0;0;0
-895;Evoluir Pocket_ Sobradinho;Centro-Norte;N/A;Número de formados;Último Valor;12;14;18;0;0;0;0
-896;Plano de Relacionamento IMB;Sul;Imbituba;% satisfação em pesquisa;Último Valor;64;80;95;0;99;0;500
-896;Plano de Relacionamento IMB;Sul;Imbituba;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;2;0;100
-896;Plano de Relacionamento IMB;Sul;Imbituba;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;0;21;0;350
-896;Plano de Relacionamento IMB;Sul;Imbituba;Número de voluntários;Último Valor;52;63;73;0;9;300;300
+893;Evoluir Pocket_ Sobradinho;Centro-Norte;N/A;% Evasão da turma;Último Valor;12;10;8;0;0;0;0
+893;Evoluir Pocket_ Sobradinho;Centro-Norte;N/A;Número de formados;Último Valor;12;14;18;0;0;0;0
+894;Plano de Relacionamento - Porto Velho;Centro-Norte;N/A;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;4;4;500;500
+894;Plano de Relacionamento - Porto Velho;Centro-Norte;N/A;Número de voluntários;Último Valor;5;6;8;7;7;400;400
+896;Plano de Relacionamento IMB;Sul;Imbituba;% satisfação em pesquisa;Último Valor;64;80;95;99;99;500;500
+896;Plano de Relacionamento IMB;Sul;Imbituba;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;6;6;500;500
+896;Plano de Relacionamento IMB;Sul;Imbituba;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;8;10;12;300;300;500;500
+896;Plano de Relacionamento IMB;Sul;Imbituba;Número de voluntários;Último Valor;52;63;73;14;14;500;500
+604;ReDes Incubação - Pesca - São Félix/BA (Fazenda Pilar);Pedra do Cavalo;São Félix;Evolução na Régua de maturidade;Último Valor;2;3;4;0;3;0;300
+605;ReDes Incubação - Pesca - Maragogipe/BA (Enseada);Pedra do Cavalo;Maragogipe;Evolução na Régua de maturidade;Último Valor;2;3;4;0;3;0;300
 1019;Curso de Informática Básica;Nordeste;Laranjeiras;Alunos participantes;Acumular;30;60;90;0;0;0;0
 1019;Curso de Informática Básica;Nordeste;Laranjeiras;Evasão;Média Simples;20;10;5;0;0;0;0
 1020;Evoluir - Primavera;Nordeste;Primavera;Engajamento;Último Valor;40;50;65;0;0;0;0
 1020;Evoluir - Primavera;Nordeste;Primavera;Evazão;Último Valor;15;5;0;0;0;0;0
 1020;Evoluir - Primavera;Nordeste;Primavera;Formatura;Último Valor;40;50;65;0;0;0;0
-1021;Evoluir - Camaçari;Nordeste;Camaçari;% Frequência da turma;Último Valor;60;80;90;0;0;0;0
-1021;Evoluir - Camaçari;Nordeste;Camaçari;% Evasão da turma;Último Valor;5;3;0;0;0;0;0
-1021;Evoluir - Camaçari;Nordeste;Camaçari;Número de formados;Último Valor;5;8;10;0;0;0;0
-1021;Evoluir - Camaçari;Nordeste;Camaçari;Contratados pela VC;Último Valor;1;2;3;0;0;0;0
 1022;Evoluir  São Luís;Nordeste;São Luís;% Frequência da turma;Último Valor;60;80;100;0;0;0;0
 1022;Evoluir  São Luís;Nordeste;São Luís;% Evasão da turma;Último Valor;5;3;0;0;0;0;0
 1022;Evoluir  São Luís;Nordeste;São Luís;Número de formados;Último Valor;5;6;9;0;0;0;0
 1022;Evoluir  São Luís;Nordeste;São Luís;Número de mulheres formadas;Último Valor;5;6;7;0;0;0;0
+1021;Evoluir - Camaçari;Nordeste;Camaçari;% Frequência da turma;Último Valor;60;80;90;0;0;0;0
+1021;Evoluir - Camaçari;Nordeste;Camaçari;% Evasão da turma;Último Valor;5;3;0;0;0;0;0
+1021;Evoluir - Camaçari;Nordeste;Camaçari;Número de formados;Último Valor;5;8;10;0;0;0;0
+1021;Evoluir - Camaçari;Nordeste;Camaçari;Contratados pela VC;Último Valor;1;2;3;0;0;0;0
 1023;Evoluir Sobral;Nordeste;Sobral;% Frequência da turma;Último Valor;60;80;90;0;0;0;0
 1023;Evoluir Sobral;Nordeste;Sobral;% Evasão da turma;Último Valor;5;3;0;0;0;0;0
-1023;Evoluir Sobral;Nordeste;Sobral;Número de formados;Último Valor;5;8;10;0;0;0;0
-1023;Evoluir Sobral;Nordeste;Sobral;Contratados pela VC;Último Valor;1;1;3;0;0;0;0
+1023;Evoluir Sobral;Nordeste;Sobral;Contratados pela VC;Último Valor;1;1;2;3;3;500;500
+1023;Evoluir Sobral;Nordeste;Sobral;Número de formados;Último Valor;5;8;9;0;0;0;0
+1023;Evoluir Sobral;Nordeste;Sobral;Número de mulheres formadas;Último Valor;5;6;7;0;0;0;0
 1031;Plano de Relacionamento - Pecém;Nordeste;Caucaia;% satisfação em pesquisa;Último Valor;75;85;95;0;0;0;0
 1031;Plano de Relacionamento - Pecém;Nordeste;Caucaia;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;0;0;0
 1031;Plano de Relacionamento - Pecém;Nordeste;Caucaia;Número de ações de relacionamento com o público priorizado na Matriz de Stakeholders (visitas, reuniões, Portas Abertas, etc);Último Valor;1;2;3;0;0;0;0
 1031;Plano de Relacionamento - Pecém;Nordeste;Caucaia;Número de visitantes/pessoas beneficiádas pela ação;Último Valor;1;2;3;0;0;0;0
 1031;Plano de Relacionamento - Pecém;Nordeste;Caucaia;Número de voluntários;Último Valor;1;2;3;0;0;0;0
-1032;Valor VC Apicultura LAR;Nordeste;Laranjeiras;Novos parceiros comerciais ;Último Valor;1;2;3;0;0;0;0
-1032;Valor VC Apicultura LAR;Nordeste;Laranjeiras;Número de pessoas capacitadas;Último Valor;4;5;8;0;0;0;0
+1032;Valor VC Apicultura LAR;Nordeste;Laranjeiras;Novos parceiros comerciais ;Último Valor;1;2;3;0;2;0;300
+1032;Valor VC Apicultura LAR;Nordeste;Laranjeiras;Número de pessoas capacitadas;Último Valor;4;5;8;0;1;0;0
 1032;Valor VC Apicultura LAR;Nordeste;Laranjeiras;%Incremento de renda;Último Valor;5;10;20;0;0;0;0
