@@ -126,7 +126,6 @@ with st.sidebar:
 
     df_para_filtros = df.copy()
 
-    # --- Filtro de ANO ---
     ano_selecionado = 'Selecione'
     if 'ano' in df_para_filtros.columns:
         anos_disponiveis = []
@@ -150,7 +149,6 @@ with st.sidebar:
                     ]
 
 
-    # --- Função auxiliar para criar OPÇÕES de filtro ---
     def criar_opcoes_filtro(dataframe_filtrado, coluna_nome):
         if coluna_nome in dataframe_filtrado.columns:
             opcoes = dataframe_filtrado[coluna_nome].dropna().astype(str).str.strip()
@@ -161,7 +159,7 @@ with st.sidebar:
         return ["Selecione"]
 
 
-    # --- Filtros em Cascata ---
+    
     colunas_filtro_cascata = ['regional', 'estado', 'município', 'negócio', 'unidade']
     selecoes = {}
 
@@ -177,7 +175,7 @@ with st.sidebar:
 
     df_filtrado = df_para_filtros.copy()
 
-# --- LÓGICA DE EXIBIÇÃO ---
+
 st.markdown("---")
 
 filtros_ativos = any(v != 'Selecione' for v in selecoes.values()) or ano_selecionado != 'Selecione'
@@ -225,7 +223,7 @@ if not df_filtrado.empty and (filtros_ativos or len(df_filtrado) < len(df)):
 
         if not df_metas_batidas.empty:
 
-            # --- SEÇÃO 1: CONTAGEM DE METAS BATIDAS ---
+            
             contagem = {}
             if 'meta100' in df_metas_batidas:
                 contagem['Meta 100'] = (df_metas_batidas['resultado ciclo'] >= df_metas_batidas['meta100'].fillna(
@@ -245,7 +243,7 @@ if not df_filtrado.empty and (filtros_ativos or len(df_filtrado) < len(df)):
                              color_discrete_sequence=px.colors.qualitative.Pastel)
                 st.plotly_chart(fig, use_container_width=True)
 
-            # --- SEÇÃO 2: RESULTADO VS METAS POR INDICADOR (GRÁFICO CORRIGIDO) ---
+        
             st.subheader('Resultado vs Metas por Indicador')
 
             df_metas_batidas['Meta100_Soma'] = df_metas_batidas.apply(
