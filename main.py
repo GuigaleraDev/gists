@@ -2,20 +2,14 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-# ------------------------------------------------
-# 1. CONFIGURAÇÃO DA PÁGINA E CORES
-# ------------------------------------------------
-st.set_page_config(page_title="Dashboard - Case Comercial", layout="wide")
-st.title("📊 Avaliação de Campanha de Vendas (Q2 2025)")
 
-# Suas novas cores personalizadas
-COR_ANTES = '#96e637'  # Azul escuro
-COR_DURANTE = '#0000bf' # Verde claro
+st.set_page_config(page_title="Dashboard - Case Comercial", layout="wide")
+st.title("Campanha de Vendas")
+
+COR_ANTES = '#96e637'
+COR_DURANTE = '#0000bf'
 PALETA = [COR_ANTES, COR_DURANTE]
 
-# ------------------------------------------------
-# 2. CARREGAMENTO E PREPARAÇÃO DOS DADOS
-# ------------------------------------------------
 @st.cache_data
 def carregar_dados():
     df = pd.read_csv("Acompanhamento_Campanha.csv", sep=None, engine='python')
@@ -31,16 +25,10 @@ except FileNotFoundError:
     st.error("Arquivo Acompanhamento_Campanha.csv não encontrado. Verifique se ele está na mesma pasta que o app.py.")
     st.stop()
 
-# ------------------------------------------------
-# 3. ESTRUTURA DE ABAS (TABS)
-# ------------------------------------------------
-aba_executiva, aba_detalhada = st.tabs(["📈 Visão Executiva", "🔍 Análise Detalhada (Filtros)"])
+aba_executiva, aba_detalhada = st.tabs(["Dashboard", "Detalhes"])
 
-# ================================================
-# ABA 1: VISÃO EXECUTIVA (Resumo Global)
-# ================================================
 with aba_executiva:
-    st.header("1. Resultado Global da Campanha")
+    st.header("1. Resultado da Campanha")
 
     df_global = df.groupby('Período')[['Volume de vendas (t)', 'Lucro Total']].sum().reset_index()
 
@@ -51,7 +39,7 @@ with aba_executiva:
 
     col1.metric(label="Lucro Total (Antes)", value=f"R$ {lucro_antes:,.0f}".replace(',','.'))
     col2.metric(label="Lucro Total (Durante)", value=f"R$ {lucro_durante:,.0f}".replace(',','.'), delta=f"{crescimento_lucro:.2f}%")
-    col3.markdown("**Veredito:** A campanha foi um sucesso! O ganho de volume compensou a perda de margem unitária, adicionando valor real ao Lucro Total da empresa.")
+    col3.markdown("**Resposta:** A campanha foi um sucesso! O ganho de volume compensou a perda de margem unitária, adicionando valor real ao Lucro Total da empresa.")
 
     fig_lucro = px.bar(df_global, x='Período', y='Lucro Total', text_auto='.3s', title="Evolução do Lucro Total", color='Período', color_discrete_sequence=PALETA)
     fig_vol = px.bar(df_global, x='Período', y='Volume de vendas (t)', text_auto='.3s', title="Evolução do Volume Total", color='Período', color_discrete_sequence=PALETA)
@@ -100,34 +88,28 @@ with aba_executiva:
 
     st.dataframe(top5.style.format({"Volume Comprado (t)": "{:,.0f} t", "Faturamento (R$)": "R$ {:,.2f}", "Lucro Total (R$)": "R$ {:,.2f}"}), use_container_width=True)
 
-# ================================================
-# ABA 2: ANÁLISE DETALHADA (Filtros Interativos)
-# ================================================
 with aba_detalhada:
-    st.header("Raio-X: Filtre os dados por Segmento ou Cliente")
-    st.markdown("Use as opções abaixo para isolar o comportamento de um grupo ou cliente específico durante a campanha.")
+    st.header("Filtro de dados por Segmento ou Cliente")
     
-    # Opção de escolher o tipo de filtro
     tipo_filtro = st.radio("Deseja filtrar por:", ["Segmento", "Cliente"], horizontal=True)
     
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # Lógica do Filtro
     if tipo_filtro == "Segmento":
         lista_opcoes = df['Segmento'].unique()
-        selecao = st.selectbox("Selecione o Segmento desejado:", lista_opcoes)
+        selecao = st.selectbox("Selecione o Segmento:", lista_opcoes)
         df_filtrado = df[df['Segmento'] == selecao]
     else:
         lista_opcoes = sorted(df['Cód.Cliente'].unique())
-        selecao = st.selectbox("Selecione o Cliente desejado:", lista_opcoes)
+        selecao = st.selectbox("Selecione o Cliente:", lista_opcoes)
         df_filtrado = df[df['Cód.Cliente'] == selecao]
         
     st.markdown("---")
     
-    # Calculando os dados do item filtrado
+
     df_resumo_filtro = df_filtrado.groupby('Período')[['Volume de vendas (t)', 'Lucro Total', 'Faturamento']].sum().reset_index()
     
-    # Tratamento para evitar erros se um cliente não comprou em um dos períodos
+    
     try:
         lucro_a = df_resumo_filtro.loc[df_resumo_filtro['Período']=='Antes', 'Lucro Total'].values[0]
         lucro_d = df_resumo_filtro.loc[df_resumo_filtro['Período']=='Durante', 'Lucro Total'].values[0]
@@ -137,13 +119,12 @@ with aba_detalhada:
         vol_d = df_resumo_filtro.loc[df_resumo_filtro['Período']=='Durante', 'Volume de vendas (t)'].values[0]
         var_vol = ((vol_d / vol_a) - 1) * 100
         
-        # Exibindo os indicadores (Cards)
+    
         st.subheader(f"Desempenho: {selecao}")
         col_f1, col_f2 = st.columns(2)
         col_f1.metric("Variação de Lucro Total", f"R$ {lucro_d:,.0f}".replace(',','.'), f"{var_lucro:.2f}%")
         col_f2.metric("Variação de Volume (t)", f"{vol_d:,.0f} t".replace(',','.'), f"{var_vol:.2f}%")
         
-        # Gráficos específicos da seleção
         st.markdown("<br>", unsafe_allow_html=True)
         col_g1, col_g2 = st.columns(2)
         
