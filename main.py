@@ -49,39 +49,25 @@ with aba_executiva:
     col2_graf.plotly_chart(fig_vol, use_container_width=True)
 
     st.markdown("---")
-            # GRAFICO NOVO: Evolução Mensal
-    st.header("2. Evolução Mensal do Lucro (Timeline)")
-    st.markdown("Como o Lucro se comportou mês a mês antes e durante o período promocional.")
+            
     
-    # 1. Agrupar e garantir a ordem correta para a linha não ficar "torta"
-    df_mensal = df.groupby('Mês')['Lucro Total'].sum().reset_index().sort_values('Mês')
     
-    # 2. Transformar o número em texto ("Mês 1", "Mês 2") para o eixo X ficar perfeitamente alinhado
-    df_mensal['Mês_Texto'] = df_mensal['Mês'].apply(lambda x: f"Mês {x}")
+    st.header("2. Evolução Mensal do Lucro")
+    st.markdown("Como o Lucro se comportou mês a mês antes e durante o período da campanha.")
     
-    fig_linha = px.line(df_mensal, x='Mês_Texto', y='Lucro Total', markers=True, title="Curva de Lucro ao longo dos Meses", text='Lucro Total')
+    df_mensal = df.groupby('Mês')['Lucro Total'].sum().reset_index()
+    fig_linha = px.line(df_mensal, x='Mês', y='Lucro Total', markers=True, title="Curva de Lucro ao longo dos Meses", text='Lucro Total')
     
-    # 3. Tirando o aspecto "escuro": Linha mais grossa e marcadores maiores com borda clara
-    fig_linha.update_traces(
-        textposition="bottom right", 
-        texttemplate='%{text:.3s}', 
-        line=dict(color=COR_ANTES, width=4), 
-        marker=dict(color=COR_ANTES, size=12, line=dict(color='white', width=2))
-    )
     
-    # 4. Ajustando a marcação verde de fundo (índices 2.5 a 5.5 cobrem exatamente os meses 4, 5 e 6)
-    fig_linha.add_vrect(
-        x0=2.5, x1=5.5, 
-        fillcolor=COR_DURANTE, opacity=0.15, 
-        line_width=0, annotation_text=" Período da Campanha", annotation_position="top left"
-    )
+    fig_linha.update_traces(textposition="bottom right", texttemplate='%{text:.3s}', line_color=COR_DURANTE, marker=dict(color=COR_DURANTE, size=10))
     
     st.plotly_chart(fig_linha, use_container_width=True)
 
 
+
     st.markdown("---")
 
-    st.header("2. Visão de Preço, Volume e Efetividade por Segmento")
+    st.header("3. Visão de Preço, Volume e Efetividade por Segmento")
 
     df_seg = df.groupby(['Segmento', 'Período']).agg(
         Volume_Total=('Volume de vendas (t)', 'sum'),
@@ -105,7 +91,7 @@ with aba_executiva:
         st.plotly_chart(fig_vol_medio, use_container_width=True)
 
     st.markdown("---")
-    st.header("3. Top 5 Clientes da Campanha")
+    st.header("4. Top 5 Clientes da Campanha")
 
     df_durante = df[df['Período'] == 'Durante']
     top5 = df_durante.groupby('Cód.Cliente').agg(
