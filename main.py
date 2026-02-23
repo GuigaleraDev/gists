@@ -49,6 +49,22 @@ with aba_executiva:
     col2_graf.plotly_chart(fig_vol, use_container_width=True)
 
     st.markdown("---")
+        # GRAFICO NOVO: Evolução Mensal
+    st.header("2. Evolução Mensal do Lucro (Timeline)")
+    st.markdown("Como o Lucro se comportou mês a mês antes e durante o período promocional.")
+    
+    df_mensal = df.groupby('Mês')['Lucro Total'].sum().reset_index()
+    fig_linha = px.line(df_mensal, x='Mês', y='Lucro Total', markers=True, title="Curva de Lucro ao longo dos Meses", text='Lucro Total')
+    
+    # Customizando a linha com as suas cores
+    fig_linha.update_traces(textposition="bottom right", texttemplate='%{text:.3s}', line_color=COR_ANTES, marker=dict(color=COR_ANTES, size=10))
+    # Marcando o fundo do gráfico para destacar os meses da campanha (Mês 4 ao 6) com o verde claro
+    fig_linha.add_vrect(x0=3.5, x1=6.5, fillcolor=COR_DURANTE, opacity=0.2, line_width=0, annotation_text=" Período da Campanha", annotation_position="top left")
+    
+    st.plotly_chart(fig_linha, use_container_width=True)
+
+    st.markdown("---")
+
     st.header("2. Visão de Preço, Volume e Efetividade por Segmento")
 
     df_seg = df.groupby(['Segmento', 'Período']).agg(
@@ -87,6 +103,9 @@ with aba_executiva:
     top5.index = top5.index + 1 
 
     st.dataframe(top5.style.format({"Volume Comprado (t)": "{:,.0f} t", "Faturamento (R$)": "R$ {:,.2f}", "Lucro Total (R$)": "R$ {:,.2f}"}), use_container_width=True)
+    # Gráfico de Funil do Top 5 devolvido com a cor verde da campanha!
+    fig_top5 = px.funnel(top5, x='Lucro Total (R$)', y='Cód.Cliente', title="Representatividade do Top 5 no Lucro", color_discrete_sequence=[COR_DURANTE])
+    st.plotly_chart(fig_top5, use_container_width=True)
 
 with aba_detalhada:
     st.header("Filtro de dados por Segmento ou Cliente")
