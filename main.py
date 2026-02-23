@@ -16,7 +16,7 @@ st.markdown("---")
 @st.cache_data
 def carregar_dados():
     # Substitua pelo nome exato do seu arquivo CSV
-    df = pd.read_csv("Case - Estágio Processos Comerciais teste.xlsx - Acompanhamento Campanha.csv", sep=None, engine='python')
+    df = pd.read_csv("Case - Estágio Processos Comerciais teste.xlsx - Acompanhamento_Campanha.csv", sep=None, engine='python')
     
     # Criando as colunas auxiliares
     df['Período'] = df['Mês'].apply(lambda x: 'Antes' if x <= 3 else 'Durante')
