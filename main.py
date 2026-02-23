@@ -9,8 +9,8 @@ st.set_page_config(page_title="Dashboard - Case Comercial", layout="wide")
 st.title("📊 Avaliação de Campanha de Vendas (Q2 2025)")
 
 # Suas novas cores personalizadas
-COR_ANTES = '#0000bf'  # Azul escuro
-COR_DURANTE = '#96e637' # Verde claro
+COR_ANTES = '#96e637'  # Azul escuro
+COR_DURANTE = '#0000bf' # Verde claro
 PALETA = [COR_ANTES, COR_DURANTE]
 
 # ------------------------------------------------
